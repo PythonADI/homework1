@@ -1,5 +1,13 @@
 # homework1
 
+Prerequisites:
+- Arithmetic operators
+- Showing output in terminal (print function)
+
+---
+
+Assignment: 
+
 In [main](./homework1/main.py) function printout followings in order:
 
 [main](./homework1/main.py) - ფუნქციაში დაბეჭდეთ შემდეგი მონაცემები შემდეგი მიმდევრობით:
