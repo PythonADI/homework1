@@ -14,13 +14,17 @@ class TestMainFunction(TestCase):
                 main()
 
             exercises = [
-                exercise[3:]
+                exercise[3:].strip()
                 for exercise in
-                read_me.read_text().split('\n')[6:]
+                read_me.read_bytes().decode().split('\n')[6:-1]
             ]
+
             output = buf.getvalue().split('\n')[:-1]
-            for i, (done_exercise, exercise) in enumerate(zip(output, exercises[:-1]), start=1):
+            self.assertEqual(len(output), len(exercises), msg='Number of exercises does not match')
+
+            for i, (done_exercise, exercise) in enumerate(zip(output, exercises), start=1):
                 msg = f'Wrong answer for exercise {i}: {exercise}, you have {done_exercise}'
+                print(exercise, done_exercise)
                 self.assertEqual(
                     done_exercise,
                     str(eval(exercise)),
